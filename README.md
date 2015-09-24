@@ -1,6 +1,6 @@
 # SAMPDictionary
 
-SA-MP Dictionary is a simple dictionary system that allows you to get definitions of English words easily! Thank you for using. 
+SA-MP Dictionary is a simple dictionary system that allows you to get definitions of English words easily!
 
 Commands
 /dictionary 
