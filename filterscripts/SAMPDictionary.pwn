@@ -1,7 +1,7 @@
 /*
 ________________________________________________________________________________
 
-						SA-MP Dictionary System
+			SAMPDictionary - English Dictionary System For SA-MP
 						        By
 							  Lordzy
 
@@ -29,8 +29,8 @@ ________________________________________________________________________________
 #define         SQL_PASS                ""
 #define         SQL_DATA                ""
 
-#define         PRONOUNCE_WORD          1
-#define         DIALOG_ID_DICTIONARY    12767 //Change if it collides with your current dialogs.
+#define         PRONOUNCE_WORD          1 		//Set it to 0 if you don't want word to be pronounced at first.
+#define         DIALOG_ID_DICTIONARY    12767 	//Change if it collides with your current dialogs.
 
 
 new
@@ -53,7 +53,7 @@ public OnFilterScriptInit() {
 	    OnPlayerConnect(i);
 	}
 	print("____________________________________________________\n");
-	print(" SA-MP Dictionary System v1.0 loaded!");
+	print("\tSAMPDictionary v1.0 loaded!");
 	print("____________________________________________________");
 	
 	return 1;
@@ -62,7 +62,7 @@ public OnFilterScriptInit() {
 public OnFilterScriptExit() {
 
 	mysql_close(g_DictionaryHandle);
-	print("SA-MP Dictionary System unloaded!");
+	print("SAMPDictionary v1.0 unloaded!");
 	
 	return 1;
 }
@@ -101,7 +101,7 @@ public OnDictionaryResponse(playerid, word[]) {
 	if(temp_Counts) {
 
 	    new
-	        temp_dString[2048],
+	        temp_dString[2000],
 	        temp_Definition[500] //Some definitions are large.
 		;
 		
@@ -121,7 +121,7 @@ public OnDictionaryResponse(playerid, word[]) {
 			cache_get_row(i, 0, temp_Definition, g_DictionaryHandle, sizeof(temp_Definition));
 			format(temp_dString, sizeof(temp_dString), "%s\n\n{F2C80C}#%d. {FFFFFF}%s", temp_dString, i + g_PlayerSearchCounts{playerid}, temp_Definition);
 		}
-		ShowPlayerDialog(playerid, DIALOG_ID_DICTIONARY, DIALOG_STYLE_MSGBOX, "SA-MP - Dictionary", temp_dString,
+		ShowPlayerDialog(playerid, DIALOG_ID_DICTIONARY, DIALOG_STYLE_MSGBOX, "SAMPDictionary", temp_dString,
 		    "Okay", (temp_Counts > 4) ? ("Next") : (""));
 		g_PlayerSearchCounts{playerid} += 4;
 	}
