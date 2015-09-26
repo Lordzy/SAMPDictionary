@@ -102,7 +102,7 @@ public OnDictionaryResponse(playerid, word[]) {
 
 	    new
 	        temp_dString[2000],
-	        temp_Definition[500] //Some definitions are large.
+	        temp_Definition[260] //Some definitions are large.
 		;
 		
 	#if PRONOUNCE_WORD == 1
